@@ -9,95 +9,81 @@
 # shoulders = int(input('Ведите вес гантелей для упражения махи плечами'))
 # max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
 
-class TrainingCalculator:
-    def __init__(self, Exercises):
-        self.weight = Exercises
-        self.easy = int(Exercises / 100 * 50)
-        self.med = int(Exercises / 100 * 70)
-        self.heavy = int(Exercises / 100 * 85)
+
+
+chest_press_list = []
+
+class BrenchPress:
+    def __init__(self, max_chest_press):
+        self.weight = max_chest_press
+        self.easy = int(self.weight / 100 * 50)
+        self.med = int(self.weight / 100 * 70)
+        self.heavy = int(self.weight / 100 * 85)
         easy = 0
         medium = 0
         hard = 0
-        for week in range(1, 8):
+        for week in range(0, 9):
             if week == 1:
                 easy += 0
                 medium += 0
                 hard += 0
-                self.easy = int(Exercises / 100 * 50 + easy)
-                self.med = int(Exercises / 100 * 70 + medium)
-                self.heavy = int(Exercises / 100 * 85 + hard)
-                print('легкая тренировка', self.easy, 'средняя тренировка', self.med,
-                      'тяжелая тренировка', self.heavy)
-
+                self.easy = int(self.weight / 100 * 50 + easy)
+                chest_press_list.append(self.easy)
+                self.med = int(self.weight / 100 * 70 + medium)
+                chest_press_list.append(self.med)
+                self.heavy = int(self.weight / 100 * 85 + hard)
+                chest_press_list.append(self.heavy)
+                chest_press_list.append('-')
             elif week == 2:
                 easy += 5
                 medium += 2
                 hard += 7
-                self.easy = int(Exercises / 100 * 50 + easy)
-                self.med = int(Exercises / 100 * 70 + medium)
-                self.heavy = int(Exercises / 100 * 85 + hard)
-                print('легкая тренировка', self.easy, 'средняя тренировка', self.med,
-                      'тяжелая тренировка', self.heavy)
-
+                self.easy = int(self.weight / 100 * 50 + easy)
+                chest_press_list.append(self.easy)
+                self.med = int(self.weight / 100 * 70 + medium)
+                chest_press_list.append(self.med)
+                self.heavy = int(self.weight / 100 * 85 + hard)
+                chest_press_list.append(self.heavy)
+                chest_press_list.append('-')
             elif week == 3:
                 easy += 5
-                medium =+ 2
+                medium += 2
                 hard += 8
-                self.easy = int(Exercises / 100 * 50 + easy)
-                self.med = int(Exercises / 100 * 70 + medium)
-                self.heavy = int(Exercises / 100 * 85 + hard)
-                print('легкая тренировка', self.easy, 'средняя тренировка', self.med,
-                      'тяжелая тренировка', self.heavy)
-
-            elif week == 4:
+                self.easy = int(self.weight / 100 * 50 + easy)
+                chest_press_list.append(self.easy)
+                self.med = int(self.weight / 100 * 70 + medium)
+                chest_press_list.append(self.med)
+                self.heavy = int(self.weight / 100 * 85 + hard)
+                chest_press_list.append(self.heavy)
+                chest_press_list.append('-')
+            elif week >= 4:
                 easy += 2
                 medium += 2
                 hard += 2
-                self.easy = int(Exercises / 100 * 50 + easy)
-                self.med = int(Exercises / 100 * 70 + medium)
-                self.heavy = int(Exercises / 100 * 85 + hard)
-                print('легкая тренировка', self.easy, 'средняя тренировка', self.med,
-                      'тяжелая тренировка', self.heavy)
+                self.easy = int(self.weight / 100 * 50 + easy)
+                chest_press_list.append(self.easy)
+                self.med = int(self.weight / 100 * 70 + medium)
+                chest_press_list.append(self.med)
+                self.heavy = int(self.weight / 100 * 85 + hard)
+                chest_press_list.append(self.heavy)
+                chest_press_list.append('-')
+            print('Неделя {} Легкая тренировка {}. Средняя тренировка {}.Тяжелая тренировка {}'.format(week,self.easy, self.med,
+                                                                                             self.heavy))
 
-            elif week >= 5:
-                easy += 2
-                medium += 2
-                hard += 2
-                self.easy = int(Exercises / 100 * 50 + easy)
-                self.med = int(Exercises / 100 * 70 + medium)
-                self.heavy = int(Exercises / 100 * 85 + hard)
-                print('легкая тренировка', self.easy, 'средняя тренировка', self.med,
-                           'тяжелая тренировка', self.heavy)
-
-
-class Exercises:
-    def __init__(self,max_press):
-        self.weight = max_press
-        self.easy = 0
-        self.med = 0
-        self.heavy = 0
-
-        TrainingCalculator(self.weight)
+squat_list = []
+class Squat (BrenchPress):
+    def __init__(self, max_squats):
+        self.weight = max_squats
 
 
 
 
-press_chest_program = Exercises(max_press=80)
+press_chest_program = BrenchPress(max_chest_press=80)
+squat_program = Squat(max_squats=90)
+print(chest_press_list)
+print('1 тернировка, 1 неделя, \n 1 - жим, 4х12', chest_press_list[0])
 
 
-class Week:
-    def __init__(self):
 
 
-
-
-# max_chest_press = ChestPress(80)
-# max_squats = TrainingCalculator(80)
-# standing_chest_press = TrainingCalculator(80)
-# lifting_biceps = TrainingCalculator(80)
-# bent_over_row = TrainingCalculator(80)
-# close_grip_bench_press = TrainingCalculator(80)
-# lat_pull_down_machine = TrainingCalculator(80)
-# max_romanian_lift = TrainingCalculator(80)
-# shoulders = TrainingCalculator(80)
 

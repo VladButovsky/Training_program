@@ -30,6 +30,8 @@
 # heavy_day_chest_press = max_chest_press//100*85
 
 
+
+
 class ChestPress:
     def __init__(self, max_chest_press):
         self.weight = max_chest_press
