@@ -1,14 +1,15 @@
-# max_chest_press = (int(input('Введите ваш жим с груди')))
-# max_squats = int(input('Введите присед'))
-# max_standing_chest_press = int(input('Ведите жим с груди стоя'))
-# lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
-# bent_over_row = int(input('Ведите тягу штанги в наклоне '))
-# close_grip_bench_press = int(input('Ведите жим лежа узким хватом '))
-# lat_pull_down_machine = int(input('Ведите вашу тягу в вертикальном блоке '))
-# max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
-# shoulders = int(input('Ведите вес гантелей для упражения махи плечами'))
-# max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
+print('Программа GYM-Bro приветствует тебя!\n\nПрограмма составит для тебя тренировочный цикл на 8 недель '
+      'в стиле "FullBody" тренировок.\nДля составления программы тренировок потребуется указать ваш максимальный\n'
+      'рабочий вес в нескольких основных упражнениях.\nМаксимальный рабочий вес это - максимальный, но комфортный вес'
+      'на 6 повторений, с запасом в 1 повтороение\n')
 
+max_chest_press = (int(input('Введите ваш жим с груди')))
+max_squats = int(input('Введите присед'))
+max_standing_chest_press = int(input('Ведите жим с груди стоя'))
+max_lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
+max_side_delts = int(input('Ведите вес гантелей для упражения махи плечами'))
+max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
+max_incline_bench_press = int(input('Ведите ваш жим на наклонной скамье'))
 
 chest_press_list = []
 
@@ -196,8 +197,8 @@ class InclineBenchPress:
 side_delts_list = []
 
 class SideDelts:
-    def __init__(self, max_side_delts_program):
-        self.weight = max_side_delts_program
+    def __init__(self, max_side_delts):
+        self.weight = max_side_delts
         self.easy = int(self.weight / 100 * 50)
         self.med = int(self.weight / 100 * 70)
         self.heavy = int(self.weight / 100 * 85)
@@ -268,13 +269,13 @@ class RomanianLift:
                 romanian_lift_list.append('-')
 
 
-max_lifting_biceps = LiftingBiceps(max_lifting_biceps=25)
-press_chest_program = TrainingCalculator(max_chest_press=80)
-squat_program = Squat(max_squats=90)
-standing_chest_press_program = StandingChestPress(max_standing_chest_press=35)
-incline_bench_press_program = InclineBenchPress(max_incline_bench_press=45)
-max_side_delts_program = SideDelts(max_side_delts_program=5)
-max_romanian_lift_program = RomanianLift(max_romanian_lift=70)
+max_lifting_biceps_program = LiftingBiceps(max_lifting_biceps)
+press_chest_program = TrainingCalculator(max_chest_press)
+squat_program = Squat(max_squats)
+standing_chest_press_program = StandingChestPress(max_standing_chest_press)
+incline_bench_press_program = InclineBenchPress(max_incline_bench_press)
+max_side_delts_program = SideDelts(max_side_delts)
+max_romanian_lift_program = RomanianLift(max_romanian_lift)
 
 print('chest press', chest_press_list)
 print('squad', squat_list)
@@ -295,7 +296,7 @@ class TrainingProgramPrinter:
                     '\nПрисед со штангой. Вес:', squat_list[2 + i], 'кг. 3х8'
                     '\nЖим штанги на наклонной скамье. Вес:', incline_bench_press_list[1 + i], 'кг. 3х10'                                    
                     '\nРазведение плеч в стороны с гантелями. Вес:', side_delts_list[0 + i], 'кг. 4х20'
-                    '\nГоризонтальная тяга блока в тренажере. Вес: 90ф 4х15',
+                    '\nГоризонтальная тяга блока в тренажере. Комфортный, чтобы выполнить 4х15',
                     '\nПодъем штанги на бицепс. Вес:', lifting_biceps_list[1+i],'кг. 3х10'
                     '\nПресс. Скручивния 2 подхода на максимум\n\n'
                     
@@ -306,18 +307,16 @@ class TrainingProgramPrinter:
                     '\nРумынская тяга. Вес:',romanian_lift_list[2 + i],'кг. 3х10' 
                     '\nРазведение плеч в стороны с гантелями. Вес:', side_delts_list[0 + i], 'кг. 4х20'
                     '\nПресс. Скручивния 2 подхода на максимум\n\n'
-
+                                                                                             
+                    'День 3'
                     '\nПрисед со штангой. Вес:',squat_list[0 + i], 'кг. 4х12'
                     '\nЖим лежа. Вес:', chest_press_list[2 + i],'кг. 4х8'
                     '\nЖим лежа. Вес:', chest_press_list[0 + i], 'кг. 3х10'
-                    '\nВертикальная тяга блока'
-                    '\nРазгибание ног в тренажере'
+                    '\nВертикальная тяга блока Вес: Комфортный, чтобы выполнить 4х15'
+                    '\nРазгибание ног в тренажере Вес: Комфортный, чтобы выполнить 4х15'
                     '\nРазведение плеч в стороны с гантелями. Вес:', side_delts_list[0 + i], 'кг. 4х20'
                     '\nПресс. Скручивния 2 подхода на максимум\n\n'
                   )
-
-
-
             i += 4
 
 
