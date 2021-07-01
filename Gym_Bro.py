@@ -1,20 +1,21 @@
 print('Программа GYM-Bro приветствует тебя!\n\nПрограмма составит для тебя тренировочный цикл на 8 недель '
-      'в стиле "FullBody" тренировок.\nДля составления программы тренировок, вам потребуется указать ваш\n'
+      'в стиле "FullBody" тренировок. Данная программа делает акцент на увелечение рабочего веса в жиме лежа.'
+      '\nДля составления программы тренировок, вам потребуется указать ваш'
       'рабочий вес в нескольких основных упражнениях.\nРабочий вес это - максимальный, но комфортный вес'
-      'на 8-10 повторений, с запасом в 1 повтороение, при 3 подходах.\n')
+      ' на 8-10 повторений, с запасом в 1 повтороение, при 3 подходах.\n')
 
-# max_chest_press = (int(input('Введите ваш жим с груди')))
-# max_squats = int(input('Введите присед'))
-# max_standing_chest_press = int(input('Ведите жим с груди стоя'))
-# max_lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
-# max_side_delts = int(input('Ведите вес гантелей для упражения махи плечами'))
-# max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
-# max_incline_bench_press = int(input('Ведите ваш жим на наклонной скамье'))
+max_chest_press = (int(input('Введите ваш жим с груди')))
+max_squats = int(input('Введите присед'))
+max_standing_chest_press = int(input('Ведите жим с груди стоя'))
+max_lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
+max_side_delts = int(input('Ведите вес гантелей для упражения махи плечами'))
+max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
+max_incline_bench_press = int(input('Ведите ваш жим на наклонной скамье'))
 
 chest_press_list = []
 
 
-class TrainingCalculator:
+class ChestPress:
     def __init__(self, max_chest_press):
         self.weight = max_chest_press
         self.easy = int(self.weight / 100 * 50)
@@ -270,7 +271,7 @@ class RomanianLift:
 
 
 max_lifting_biceps_program = LiftingBiceps(max_lifting_biceps=25)
-press_chest_program = TrainingCalculator(max_chest_press=85)
+press_chest_program = ChestPress(max_chest_press=85)
 squat_program = Squat(max_squats=85)
 standing_chest_press_program = StandingChestPress(max_standing_chest_press=35)
 incline_bench_press_program = InclineBenchPress(max_incline_bench_press=55)
