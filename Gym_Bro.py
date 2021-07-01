@@ -1,15 +1,15 @@
 print('Программа GYM-Bro приветствует тебя!\n\nПрограмма составит для тебя тренировочный цикл на 8 недель '
-      'в стиле "FullBody" тренировок.\nДля составления программы тренировок потребуется указать ваш максимальный\n'
-      'рабочий вес в нескольких основных упражнениях.\nМаксимальный рабочий вес это - максимальный, но комфортный вес'
-      'на 6 повторений, с запасом в 1 повтороение\n')
+      'в стиле "FullBody" тренировок.\nДля составления программы тренировок, вам потребуется указать ваш\n'
+      'рабочий вес в нескольких основных упражнениях.\nРабочий вес это - максимальный, но комфортный вес'
+      'на 8-10 повторений, с запасом в 1 повтороение, при 3 подходах.\n')
 
-max_chest_press = (int(input('Введите ваш жим с груди')))
-max_squats = int(input('Введите присед'))
-max_standing_chest_press = int(input('Ведите жим с груди стоя'))
-max_lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
-max_side_delts = int(input('Ведите вес гантелей для упражения махи плечами'))
-max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
-max_incline_bench_press = int(input('Ведите ваш жим на наклонной скамье'))
+# max_chest_press = (int(input('Введите ваш жим с груди')))
+# max_squats = int(input('Введите присед'))
+# max_standing_chest_press = int(input('Ведите жим с груди стоя'))
+# max_lifting_biceps = int(input('Ведите подъем на бицепс штанги'))
+# max_side_delts = int(input('Ведите вес гантелей для упражения махи плечами'))
+# max_romanian_lift = int(input('Ведите вашу румынскую тягу'))
+# max_incline_bench_press = int(input('Ведите ваш жим на наклонной скамье'))
 
 chest_press_list = []
 
@@ -60,7 +60,7 @@ class TrainingCalculator:
             elif week >= 4:
                 easy += 2
                 medium += 2
-                hard += 2
+                hard += 1
                 self.easy = int(self.weight / 100 * 50 + easy)
                 chest_press_list.append(self.easy)
                 self.med = int(self.weight / 100 * 70 + medium)
@@ -113,7 +113,7 @@ class Squat:
             elif week >= 4:
                 easy += 2
                 medium += 2
-                hard += 2
+                hard += 1
                 self.easy = int(self.weight / 100 * 50 + easy)
                 squat_list.append(self.easy)
                 self.med = int(self.weight / 100 * 70 + medium)
@@ -259,7 +259,7 @@ class RomanianLift:
             elif week >= 4:
                 easy += 2
                 medium += 2
-                hard += 2
+                hard += 1
                 self.easy = int(self.weight / 100 * 50 + easy)
                 romanian_lift_list.append(self.easy)
                 self.med = int(self.weight / 100 * 70 + medium)
@@ -269,21 +269,21 @@ class RomanianLift:
                 romanian_lift_list.append('-')
 
 
-max_lifting_biceps_program = LiftingBiceps(max_lifting_biceps)
-press_chest_program = TrainingCalculator(max_chest_press)
-squat_program = Squat(max_squats)
-standing_chest_press_program = StandingChestPress(max_standing_chest_press)
-incline_bench_press_program = InclineBenchPress(max_incline_bench_press)
-max_side_delts_program = SideDelts(max_side_delts)
-max_romanian_lift_program = RomanianLift(max_romanian_lift)
+max_lifting_biceps_program = LiftingBiceps(max_lifting_biceps=25)
+press_chest_program = TrainingCalculator(max_chest_press=85)
+squat_program = Squat(max_squats=85)
+standing_chest_press_program = StandingChestPress(max_standing_chest_press=35)
+incline_bench_press_program = InclineBenchPress(max_incline_bench_press=55)
+max_side_delts_program = SideDelts(max_side_delts=5)
+max_romanian_lift_program = RomanianLift(max_romanian_lift=80)
 
-print('chest press', chest_press_list)
-print('squad', squat_list)
-print('standing chest press', standing_chest_press_list)
-print('lifting biceps', lifting_biceps_list)
-print('incline_bench_press',incline_bench_press_list)
-print('side delts',side_delts_list)
-print('romanian lift',romanian_lift_list)
+# print('chest press', chest_press_list)
+# print('squad', squat_list)
+# print('standing chest press', standing_chest_press_list)
+# print('lifting biceps', lifting_biceps_list)
+# print('incline_bench_press',incline_bench_press_list)
+# print('side delts',side_delts_list)
+# print('romanian lift',romanian_lift_list)
 
 class TrainingProgramPrinter:
     def print_program(self, chest_press_list, squat_list, standing_chest_press_list, incline_bench_press_list,
@@ -310,7 +310,7 @@ class TrainingProgramPrinter:
                                                                                              
                     'День 3'
                     '\nПрисед со штангой. Вес:',squat_list[0 + i], 'кг. 4х12'
-                    '\nЖим лежа. Вес:', chest_press_list[2 + i],'кг. 4х8'
+                    '\nЖим лежа. Вес:', chest_press_list[2 + i],'кг. 3х6'
                     '\nЖим лежа. Вес:', chest_press_list[0 + i], 'кг. 3х10'
                     '\nВертикальная тяга блока Вес: Комфортный, чтобы выполнить 4х15'
                     '\nРазгибание ног в тренажере Вес: Комфортный, чтобы выполнить 4х15'
